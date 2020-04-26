@@ -1,4 +1,5 @@
 sudo: required
+language: generic
 
 services:
   - docker
@@ -7,4 +8,4 @@ before_install:
   - docker build -t dornick/frontend -f Dockerfile.dev .
 
 script:
-  - docker run dornick/frontend npm run test -- --coverage
+  - docker run -e CI=true dornick/frontend npm run test -- --coverage
