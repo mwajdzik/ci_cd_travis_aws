@@ -1,5 +1,5 @@
 # Build Phase
-FROM node:alpine AS builder
+FROM node:alpine
 
 WORKDIR /app
 COPY ./package.json ./
@@ -12,4 +12,4 @@ RUN npm run build
 # Run Phase
 FROM nginx
 EXPOSE 80
-COPY --from=builder /app/build /usr/share/nginx/html
+COPY --from=0 /app/build /usr/share/nginx/html
