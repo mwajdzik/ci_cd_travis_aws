@@ -1,9 +1,11 @@
 # Build Phase
 FROM node:alpine
-WORKDIR '/app'
-COPY package*.json ./
+WORKDIR /app
+COPY package.json .
 RUN npm install
 COPY . .
+RUN ls -al
+RUN ls -al public
 RUN npm run build
 
 # Run Phase
