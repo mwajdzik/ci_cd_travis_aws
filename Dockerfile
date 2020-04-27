@@ -1,12 +1,9 @@
 # Build Phase
 FROM node:alpine
-
-WORKDIR /app
-COPY ./package.json ./
+WORKDIR '/app'
+COPY package*.json ./
 RUN npm install
-
-COPY ./ ./
-
+COPY . .
 RUN npm run build
 
 # Run Phase
